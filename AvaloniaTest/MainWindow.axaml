@@ -6,7 +6,7 @@
         x:Class="AvaloniaTest.MainWindow"
         Title="AvaloniaTest">
 
-	<Grid VerticalAlignment="Top">
+	<Grid VerticalAlignment="Top" RowDefinitions="Auto, *">
 		<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 			<Label Content="Text box 1:"/>
 			<TextBox Name="TextBox1" MinWidth="100" />
@@ -14,5 +14,16 @@
 			<Label Content="Text box 2:" Margin="20,0,0,0"/>
 			<TextBox Name="TextBox2" MinWidth="100" />
 		</StackPanel>
+
+		<ScrollViewer Grid.Row="1" Margin="0,100,0,0" VerticalScrollBarVisibility="Auto">
+			<StackPanel>
+				<Button Content="Add Row" Click="Add_Click"/>
+				<DataGrid Name="dg1" VerticalScrollBarVisibility="Disabled">
+					<DataGrid.Columns>
+						<DataGridTextColumn Binding="{Binding Text}" Header="Text"/>
+					</DataGrid.Columns>
+				</DataGrid>
+			</StackPanel>
+		</ScrollViewer>
 	</Grid>
 </Window>
